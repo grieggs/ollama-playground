@@ -14,13 +14,12 @@ def encode_image_to_base64(image_path):
         return base64.b64encode(image_file.read()).decode('utf-8')
 
 
-def send_image_to_ollama(image_path, prompt="Describe this image"):
+def send_image_to_ollama(image_path):
     """
     Sends an image to Ollama for processing and returns the response.
 
     Args:
       image_path: Path to the image file.
-      prompt: Optional prompt to send with the image.
 
     Returns:
       The text response from Ollama.
@@ -38,7 +37,6 @@ def send_image_to_ollama(image_path, prompt="Describe this image"):
                 {
                     'role': 'user',
                     'images': [image],
-                    'content': prompt,
                 },
             ],
         )
